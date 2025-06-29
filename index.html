@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographie : L'Infodémiologie</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- 
+    Palette Name: Brilliant Blues (with accents)
+    HEX Codes: #005F73 (Dark Teal), #0A9396 (Teal), #94D2BD (Light Teal), #EE9B00 (Orange), #CA6702 (Burnt Orange)
+    -->
+    <!-- 
+    Narrative Plan:
+    1.  Hook: Big title defining Infodemiology.
+    2.  Pillars: Introduce the 4 core objectives with icons in cards.
+    3.  Process & Impact: Show the methods as a flow and applications with a comparative chart.
+    4.  Case Study: Visualize a real-world application (COVID trends) with a line chart.
+    5.  Challenges: Use a radar chart to show the multi-faceted challenges.
+    6.  Synergy: Illustrate the required collaboration between experts.
+    7.  Conclusion: A final, impactful statement.
+    -->
+    <!-- 
+    Visualization Choices (NO SVG, NO MERMAID):
+    -   Pillars Icons: Unicode characters. Goal: Inform. Method: Styled HTML. Confirmed: NO SVG.
+    -   Methods Flowchart: Structured HTML/CSS. Goal: Organize. Method: Tailwind CSS. Confirmed: NO SVG, NO MERMAID.
+    -   Applications Chart: Bar Chart. Goal: Compare. Method: Chart.js Canvas. Confirmed: NO SVG.
+    -   COVID Trend Chart: Line Chart. Goal: Change. Method: Chart.js Canvas. Confirmed: NO SVG.
+    -   Challenges Chart: Radar Chart. Goal: Compare. Method: Chart.js Canvas. Confirmed: NO SVG.
+    -   Collaboration Diagram: Structured HTML/CSS. Goal: Organize. Method: Tailwind CSS. Confirmed: NO SVG, NO MERMAID.
+    -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F0F4F8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flow-arrow {
+            color: #0A9396;
+            font-weight: bold;
+            transform: translateY(50%);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <header class="text-center my-8 md:my-16">
+            <h1 class="text-5xl md:text-7xl font-black text-[#005F73] tracking-tight">Infodémiologie</h1>
+            <p class="text-xl md:text-2xl mt-4 text-[#0A9396]">Analyser le pouls numérique de la santé publique.</p>
+        </header>
+
+        <section class="mb-16">
+             <div class="text-center max-w-4xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold text-[#005F73] mb-4">Qu'est-ce que l'Infodémiologie ?</h2>
+                <p class="text-lg text-gray-700">
+                    C'est la science qui étudie l'information de santé en ligne pour comprendre son impact sur la santé publique. En fusionnant l'épidémiologie avec la science des données, elle transforme les milliards de recherches, publications et conversations en ligne en signaux vitaux pour anticiper et gérer les crises sanitaires.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform duration-300">
+                    <span class="text-5xl">📡</span>
+                    <h3 class="text-xl font-bold mt-4 mb-2 text-[#005F73]">Surveillance</h3>
+                    <p class="text-gray-600">Identifier les tendances et la propagation des informations (et désinformations) de santé.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform duration-300">
+                    <span class="text-5xl">📊</span>
+                    <h3 class="text-xl font-bold mt-4 mb-2 text-[#005F73]">Analyse</h3>
+                    <p class="text-gray-600">Comprendre les perceptions et l'impact des messages sur les comportements du public.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform duration-300">
+                    <span class="text-5xl">🔍</span>
+                    <h3 class="text-xl font-bold mt-4 mb-2 text-[#005F73]">Détection Précoce</h3>
+                    <p class="text-gray-600">Utiliser les données numériques comme signaux pour anticiper l'émergence d'épidémies.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform duration-300">
+                    <span class="text-5xl">📈</span>
+                    <h3 class="text-xl font-bold mt-4 mb-2 text-[#005F73]">Évaluation</h3>
+                    <p class="text-gray-600">Mesurer l'efficacité et la portée des campagnes de communication sanitaire.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="mb-16 bg-white rounded-lg shadow-xl p-8">
+            <h2 class="text-3xl font-bold text-center text-[#005F73] mb-8">De la Donnée à l'Action : Méthodes et Applications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-[#0A9396] mb-6 text-center">Le Processus Infodémiologique</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="bg-[#94D2BD] text-[#005F73] p-4 rounded-lg shadow-md flex-1 text-center font-semibold">1. Extraction de Données<br><small>(Réseaux sociaux, forums, recherches)</small></div>
+                        </div>
+                        <div class="text-center text-3xl flow-arrow">↓</div>
+                        <div class="flex items-center">
+                             <div class="bg-[#94D2BD] text-[#005F73] p-4 rounded-lg shadow-md flex-1 text-center font-semibold">2. Analyse de Contenu<br><small>(Qualitative et quantitative)</small></div>
+                        </div>
+                         <div class="text-center text-3xl flow-arrow">↓</div>
+                        <div class="flex items-center">
+                             <div class="bg-[#94D2BD] text-[#005F73] p-4 rounded-lg shadow-md flex-1 text-center font-semibold">3. Modélisation & IA<br><small>(Détection de tendances, anomalies)</small></div>
+                        </div>
+                         <div class="text-center text-3xl flow-arrow">↓</div>
+                        <div class="flex items-center">
+                             <div class="bg-[#94D2BD] text-[#005F73] p-4 rounded-lg shadow-md flex-1 text-center font-semibold">4. Visualisation & Stratégie<br><small>(Rapports, interventions ciblées)</small></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-[#0A9396] mb-4 text-center">Domaines d'Application Clés</h3>
+                    <p class="text-center text-gray-600 mb-6">L'infodémiologie est appliquée à divers enjeux de santé publique. Ce graphique compare le volume de discussions en ligne (données hypothétiques) pour trois sujets majeurs, illustrant où l'attention et la désinformation peuvent se concentrer.</p>
+                    <div class="chart-container">
+                        <canvas id="applicationsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+             <h2 class="text-3xl font-bold text-center text-[#005F73] mb-4">Cas d'Usage : Suivi de la Pandémie de COVID-19</h2>
+             <p class="text-center text-lg text-gray-700 max-w-4xl mx-auto mb-8">Pendant la crise du COVID-19, l'analyse des tendances de recherche a permis de détecter les vagues épidémiques avant même les remontées officielles. Le graphique ci-dessous simule l'évolution des recherches pour "symptômes COVID", montrant un pic prédictif avant une vague de cas confirmés.</p>
+            <div class="bg-white p-6 rounded-lg shadow-xl">
+                 <div class="chart-container h-96">
+                    <canvas id="covidTrendChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-[#005F73] mb-4">Les Défis à Relever</h2>
+            <p class="text-center text-lg text-gray-700 max-w-4xl mx-auto mb-8">La puissance de l'infodémiologie s'accompagne de défis critiques. Ce diagramme illustre l'importance relative de chaque enjeu, où un score plus élevé représente un défi plus grand à surmonter pour garantir une pratique éthique et efficace.</p>
+             <div class="bg-white p-6 rounded-lg shadow-xl">
+                <div class="chart-container">
+                    <canvas id="challengesChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-[#005F73] mb-8">Une Synergie d'Expertises</h2>
+            <p class="text-center text-lg text-gray-700 max-w-4xl mx-auto mb-8">Le succès de l'infodémiologie repose sur une collaboration étroite et continue entre des domaines complémentaires.</p>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-0">
+                <div class="bg-white border-2 border-[#EE9B00] text-[#CA6702] p-6 rounded-lg shadow-md text-center w-60">
+                    <h3 class="font-bold text-xl">Épidémiologistes</h3>
+                    <p>Contextualisation sanitaire</p>
+                </div>
+                <div class="text-4xl text-[#0A9396] font-bold mx-4">+</div>
+                <div class="bg-white border-2 border-[#EE9B00] text-[#CA6702] p-6 rounded-lg shadow-md text-center w-60">
+                    <h3 class="font-bold text-xl">Data Scientists</h3>
+                    <p>Analyse & Modélisation</p>
+                </div>
+                 <div class="text-4xl text-[#0A9396] font-bold mx-4">+</div>
+                <div class="bg-white border-2 border-[#EE9B00] text-[#CA6702] p-6 rounded-lg shadow-md text-center w-60">
+                    <h3 class="font-bold text-xl">Spécialistes Communication</h3>
+                    <p>Stratégie & Message</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center py-8 border-t border-gray-300">
+            <p class="text-lg font-bold text-[#005F73]">L'infodémiologie est essentielle pour une santé publique proactive et informée à l'ère numérique.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function wrapLabel(str, maxWidth) {
+            if (str.length <= maxWidth) {
+                return str;
+            }
+            const words = str.split(' ');
+            let lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if ((currentLine + ' ' + words[i]).length > maxWidth) {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                } else {
+                    currentLine += ' ' + words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+        
+        const sharedTooltipOptions = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                              return label.join(' ');
+                            } else {
+                              return label;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        const applicationsCtx = document.getElementById('applicationsChart').getContext('2d');
+        const applicationsChart = new Chart(applicationsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['COVID-19', 'Campagnes de Vaccination', 'Santé Mentale'],
+                datasets: [{
+                    label: 'Volume de discussions en ligne (Index)',
+                    data: [95, 78, 65],
+                    backgroundColor: ['#0A9396', '#94D2BD', '#005F73'],
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                ...sharedTooltipOptions,
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#e0e0e0'
+                        }
+                    },
+                    y: {
+                         grid: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: {
+                     ...sharedTooltipOptions.plugins,
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+        
+        const covidTrendCtx = document.getElementById('covidTrendChart').getContext('2d');
+        const covidTrendChart = new Chart(covidTrendCtx, {
+            type: 'line',
+            data: {
+                labels: ['Semaine 1', 'Semaine 2', 'Semaine 3', 'Semaine 4', 'Semaine 5', 'Semaine 6', 'Semaine 7', 'Semaine 8'],
+                datasets: [{
+                    label: 'Recherches "symptômes COVID"',
+                    data: [12, 19, 30, 58, 82, 65, 40, 35],
+                    borderColor: '#EE9B00',
+                    backgroundColor: 'rgba(238, 155, 0, 0.2)',
+                    fill: true,
+                    tension: 0.4
+                }, {
+                    label: 'Cas confirmés (avec décalage)',
+                    data: [null, null, 10, 15, 25, 45, 70, 90],
+                    borderColor: '#0A9396',
+                    backgroundColor: 'rgba(10, 147, 150, 0.2)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                ...sharedTooltipOptions,
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Index de Volume / Nombre de cas'
+                        }
+                    }
+                },
+                 plugins: {
+                     ...sharedTooltipOptions.plugins,
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            }
+        });
+        
+        const challengesCtx = document.getElementById('challengesChart').getContext('2d');
+        const originalLabels = ['Fiabilité et Biais des Données', 'Éthique et Vie Privée (RGPD)', 'Gestion de la Désinformation Massive'];
+        const wrappedLabels = originalLabels.map(label => wrapLabel(label, 16));
+
+        const challengesChart = new Chart(challengesCtx, {
+            type: 'radar',
+            data: {
+                labels: wrappedLabels,
+                datasets: [{
+                    label: 'Niveau de Complexité du Défi',
+                    data: [8, 9, 10],
+                    backgroundColor: 'rgba(202, 103, 2, 0.4)',
+                    borderColor: '#CA6702',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#CA6702',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#CA6702'
+                }]
+            },
+            options: {
+                ...sharedTooltipOptions,
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: '#ccc'
+                        },
+                        grid: {
+                            color: '#ddd'
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 14
+                            },
+                            color: '#333'
+                        },
+                        ticks: {
+                           display: false,
+                           stepSize: 2
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 10
+                    }
+                },
+                plugins: {
+                     ...sharedTooltipOptions.plugins,
+                    legend: {
+                        position: 'top'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

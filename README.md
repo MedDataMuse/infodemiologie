@@ -34,4 +34,3 @@ Analyse & Modélisation
 Spécialistes Communication
 Stratégie & Message
 
-L'infodémiologie est essentielle pour une santé publique proactive et informée à l'ère numérique

@@ -1,7 +1,7 @@
 # Infodémiologie
 ## Analyser le "pouls numérique" de la santé publique.
 
-### Etude de l'information de santé en ligne pour comprendre son impact sur la santé publique. En fusionnant l'épidémiologie avec la science des données, elle transforme les milliards de recherches, publications et conversations en ligne en signaux vitaux pour anticiper et gérer les crises sanitaires.[ Page descriptive ici](https://meddatamuse.github.io/infodemiology/)
+### Etude de l'information de santé en ligne pour comprendre son impact sur la santé publique. En fusionnant l'épidémiologie avec la science des données, elle transforme les milliards de recherches, publications et conversations en ligne en signaux vitaux pour anticiper et gérer les crises sanitaires.[ Page descriptive ici](https://meddatamuse.github.io/infodemiologie/)
 
 De la Donnée à l'Action : Méthodes et Applications
 Le Processus Infodémiologique
